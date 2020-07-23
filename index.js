@@ -22,13 +22,13 @@ function subtract(a, b) {
 };
 
 // Multiply a, b ... 
-function multiply(a,b) {
+function multiply(a, b) {
     return a * b;
 };
 
 
 // Divide a,b ... 
-function divide(a,b) {
+function divide(a, b) {
     return a / b;
 };
 
@@ -52,9 +52,19 @@ function operate(num1, num2, operator) {
 //number buttons… you should be storing the ‘display value’ in a variable somewhere 
 //for use in the next step.
 
+
+
 let storedNumber = '';
 let clickedOperator = ''
 let firstNumber = '';
+let result = '';
+currentOperand.textContent = 0;
+
+
+if (parseFloat(storedNumber) > 0 && parseFloat(firstNumber) > 0 && clickedOperator.length > 0) {
+    result = operate(parseFloat(storedNumber), parseFloat(firstNumber), clickedOperator);
+    console.log('This ' + result);
+}
 
 numberButton.forEach((number) => {
     number.addEventListener('click', function() {
@@ -64,21 +74,36 @@ numberButton.forEach((number) => {
 });
 
 
-operatorButton.forEach((operator) => {
+operatorButton.forEach((operator => {
     operator.addEventListener('click', function() {
-        let firstNumber = storedNumber;
+        
+        // save the first number
+        firstNumber = storedNumber;
+        
+        // get the operator that was clicked
         clickedOperator = operator.textContent;
-        currentOperand.textContent = firstNumber + clickedOperator;
+        previousOperand.textContent = storedNumber + clickedOperator;
+        storedNumber = '';
+        
+        console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
         console.log(clickedOperator);
+        
     })
-}) 
-
+}));
 
 equalsKey.addEventListener('click', function() {
-    let result = '';
-    result = operate(Number(firstNumber), Number(storedNumber), clickedOperator);
-    console.log(result)
+    // when equals key is clicked call operate() function
+    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), clickedOperator)
+    // update content of current operation with result and previous operand with the calculation, make storedNumber = result
+    currentOperand.textContent = result;
+    previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber;
+    storedNumber = result;
+    console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
 })
+
+
+
+
 
 
 
