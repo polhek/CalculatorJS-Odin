@@ -6,4 +6,4 @@ Project made for The Odin Project - Project tasks link: https://www.theodinproje
 # Screenshot: 
 
 
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![Alt text](Screenshot 2020-07-24 at 18.10.03.png "Optional Title")
