@@ -1,69 +1,89 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-weight: normal;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-weight: normal;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  font-family: sans-serif;
 }
 
-
-
 .calculator-container {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    min-height: 100vh;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
-    
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
 .two-cols {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 
 .calculator-container > button {
-    cursor: pointer;
-    font-size: 2rem;
-    border: 1px solid #4289a7;
-    outline: none;
-    background-color: #f69d3c;
-    opacity: 80%;
-    border-radius: 5px;
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid #4289a7;
+  outline: none;
+
+  opacity: 80%;
+  border-radius: 5px;
 }
 
-.calculator-container > button:hover { 
-    opacity: 100%;
-}
-
-.calculator-display {
-    grid-column: 1 / -1;
+.calculator-container > button:hover {
+  opacity: 100%;
 }
 
 .calculator-display {
-    background-color: #efd7a5;
-    border: 1px solid #4289a7;
-    opacity: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 10px;
-    padding-top: 39px;
-    padding-bottom: 5px;
-    border-radius: 5px;
+  grid-column: 1 / -1;
+}
+
+.calculator-display {
+  background-color: #efd7a5;
+  border: 1px solid #4289a7;
+  opacity: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+  padding-top: 39px;
+  padding-bottom: 5px;
+  border-radius: 5px;
 }
 
 .calculator-display .previous-operand {
-    font-size: 1.5rem;
-    
+  font-size: 1.5rem;
 }
 
 .calculator-display .current-operand {
-    font-size: 2.5rem;
-    padding-top: 7px;
+  font-size: 2.5rem;
+  padding-top: 7px;
 }
 
+.operator {
+  background-color: #80bfd6;
+}
+
+.number {
+  background-color: #f69d3c;
+}
+
+.equals-key {
+  background-color: #ff4500;
+}
+
+.delete {
+  background-color: #eaf7e1;
+}
+
+.clear {
+  background-color: #eaf7e1;
+}
+.decimalKey {
+  background-color: #eaf7e1;
+}
