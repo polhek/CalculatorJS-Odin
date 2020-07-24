@@ -1,7 +1,7 @@
 # Calculator Javascript - The Odin Project
 
 Project made for The Odin Project - Project tasks link: https://www.theodinproject.com/lessons/calculator
-
+Github-pages link: https://polhek.github.io/CalculatorJS-Odin/
 
 # Screenshot: 
 
