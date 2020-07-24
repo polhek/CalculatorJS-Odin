@@ -1,1 +1,16 @@
-# CalculatorJS-Odin
+# Calculator Javascript - The Odin Project
+
+Project made for The Odin Project - Project tasks link: https://www.theodinproject.com/lessons/calculator
+
+
+# Screenshot: 
+
+
+[![Screenshot-2020-07-24-at-18-10-03.png](https://i.postimg.cc/1RnzgYj6/Screenshot-2020-07-24-at-18-10-03.png)](https://postimg.cc/7b44dXDY)
+
+
+# Still to do: 
+  - keyboard support
+  
+# Known bugs: 
+  - not known
