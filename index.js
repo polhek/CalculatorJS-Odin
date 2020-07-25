@@ -161,3 +161,36 @@ function deleteLastNumber() {
   currentOperand.textContent = storedNumber;
   previousOperand.textContent = firstNumber + " " + clickedOperator + " " + storedNumber;
 }
+
+
+window.addEventListener("keydown", (e) => {
+  let keypressed = e.keyCode;
+  if (keypressed >= 48 && keypressed <= 57) {
+    document.querySelector(`.number[data-key="${e.keyCode}"]`).click();
+  }
+  if (keypressed === 13) {
+    equalsKey.click();
+  }
+  if (keypressed === 8) {
+    deleteButton.click();
+  }
+  if (keypressed === 190) {
+    document.querySelector(`.decimalKey[data-key="${e.keyCode}"]`).click();
+  }
+  if (keypressed === 191) {
+    document.querySelector(`.operator[data-key="${e.keyCode}"]`).click();
+  }
+  if (keypressed === 173) {
+    document.querySelector(`.operator[data-key="${e.keyCode}"]`).click();
+  }
+  if (keypressed === 171 && e.key === "+") {
+    document.querySelector(`.operator[data-key="${e.keyCode}"]`).click();
+  }
+  if (keypressed === 171 && e.key === "*") {
+    document.querySelector(`.operator[data-key="${e.keyCode}"]`).click();
+  }
+  if (keypressed === 32) {
+    clearButton.click();
+  }
+});
+
