@@ -70,7 +70,7 @@ previousOperand.textContent = "";
 numberButton.forEach((number) => {
   number.addEventListener("click", function () {
     if (equalClicked) {
-      // do nothing
+      
     } else {
       storedNumber += number.value;
       currentOperand.textContent = storedNumber;
@@ -107,7 +107,7 @@ operatorButton.forEach((operator) => {
 equalsKey.addEventListener("click", function () {
   if (firstNumber && storedNumber) {
     displayResult();
-    buttonClicked = 'clicked';
+    equalClicked = 'clicked';
   }
 });
 
