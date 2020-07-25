@@ -62,15 +62,22 @@ let clickedOperator = "";
 let firstNumber = "";
 let temporaryNumber = "";
 let result = "";
+let roundedResult = "";
+let equalClicked = "";
 currentOperand.textContent = "0";
 previousOperand.textContent = "";
 
 numberButton.forEach((number) => {
   number.addEventListener("click", function () {
-    storedNumber += number.value;
-    currentOperand.textContent = storedNumber;
-    previousOperand.textContent =
+    if (equalClicked) {
+      // do nothing
+    } else {
+      storedNumber += number.value;
+      currentOperand.textContent = storedNumber;
+      previousOperand.textContent =
       firstNumber + " " + clickedOperator + " " + storedNumber;
+    }
+   
   });
 });
 
@@ -88,16 +95,19 @@ operatorButton.forEach((operator) => {
     clickedOperator = operator.textContent;
     if (storedNumber && firstNumber) {
       previousOperand.textContent = storedNumber + " " + clickedOperator;
+      
     } else {
       clickedOperator = "";
     }
     storedNumber = "";
+    equalClicked = "";
   });
 });
 
 equalsKey.addEventListener("click", function () {
   if (firstNumber && storedNumber) {
     displayResult();
+    buttonClicked = 'clicked';
   }
 });
 
@@ -114,7 +124,7 @@ function displayResult() {
       clickedOperator
     );
 
-    const roundedResult = Math.round(result * 10000) / 10000;
+    roundedResult = Math.round(result * 10000) / 10000;
 
     currentOperand.textContent = roundedResult;
 
@@ -149,4 +159,5 @@ deleteButton.addEventListener("click", deleteLastNumber);
 function deleteLastNumber() {
   storedNumber = storedNumber.slice(0, -1);
   currentOperand.textContent = storedNumber;
+  previousOperand.textContent = firstNumber + " " + clickedOperator + " " + storedNumber;
 }
