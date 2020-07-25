@@ -10,7 +10,7 @@ Github-pages link: https://polhek.github.io/CalculatorJS-Odin/
 
 
 # Still to do: 
-  - keyboard support
+  - Works as intended.
   
 # Known bugs: 
   - not known
