@@ -71,9 +71,9 @@ numberButton.forEach((number) => {
   number.addEventListener("click", function () {
     if (equalClicked) {
       
-    } else {
+    } else if (storedNumber.length < 15) {
       storedNumber += number.value;
-      currentOperand.textContent = storedNumber;
+      currentOperand.textContent =  storedNumber.substring(0, 17);
       previousOperand.textContent =
       firstNumber + " " + clickedOperator + " " + storedNumber;
     }
@@ -108,7 +108,26 @@ equalsKey.addEventListener("click", function () {
   if (firstNumber && storedNumber) {
     displayResult();
     equalClicked = 'clicked';
+    firstNumber = '';
+  } else if (roundedResult) {
+    result = operate(parseFloat(roundedResult), parseFloat(storedNumber), clickedOperator);
+    roundedResult = Math.round(result * 10000) / 10000;
+    currentOperand.textContent = roundedResult;
+    temporaryNumber = parseFloat(roundedResult) + parseFloat(storedNumber);
+    previousOperand.textContent =
+     temporaryNumber + " " + clickedOperator + " " + storedNumber;
+    equalClicked = 'clicked';
+    
+  } else if (parseFloat(roundedResult) === 0) {
+    result = parseFloat(roundedResult) - parseFloat(storedNumber)
+    roundedResult = Math.round(result * 10000) / 10000;
+    currentOperand.textContent = roundedResult;
+    previousOperand.textContent =
+     '0' + " " + clickedOperator + " " + storedNumber;
+    equalClicked = 'clicked';
   }
+  
+  
 });
 
 function displayResult() {
@@ -145,12 +164,17 @@ function clearDisplay() {
   result = "";
   currentOperand.textContent = "0";
   previousOperand.textContent = "";
+  equalClicked = "";
 }
 
 decimalKey.addEventListener("click", function () {
   if (!storedNumber.includes(".")) {
-    storedNumber = storedNumber + ".";
-    currentOperand.textContent = storedNumber;
+    if (!storedNumber) {
+      storedNumber = 0 + "." + storedNumber;
+    } else {
+      storedNumber = storedNumber + ".";
+      currentOperand.textContent = storedNumber;
+    }
   }
 });
 
